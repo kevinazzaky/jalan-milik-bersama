@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 
 const links = [
   ["Belajar", "#masalah"],
+  ["Mitos", "#mitos"],
+  ["Cerita", "#cerita"],
   ["Cek Diri", "#cek-diri"],
-  ["Data", "#data"],
   ["Kuis", "#kuis"],
   ["Berita", "#berita"],
 ];
@@ -32,13 +33,13 @@ export default function Navbar() {
           <span>Jalan Milik Bersama</span>
         </a>
 
-        <div className="hidden items-center gap-2 text-sm font-semibold md:flex">
+        <div className="hidden items-center gap-1 text-sm font-semibold lg:flex">
           {links.map(([label, href]) => (
             <a key={href} href={href} className={`rounded-full px-4 py-2 transition ${scrolled ? "hover:bg-mint hover:text-forest" : "text-white/75 hover:bg-white/10 hover:text-white"}`}>{label}</a>
           ))}
         </div>
 
-        <a href="#aksi" className="hidden rounded-full bg-gradient-to-r from-blue-600 to-sky-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-950/15 transition hover:-translate-y-0.5 md:block">
+        <a href="#aksi" className="hidden rounded-full bg-gradient-to-r from-blue-600 to-sky-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-950/15 transition hover:-translate-y-0.5 lg:block">
           Ambil Peran
         </a>
 
@@ -47,13 +48,13 @@ export default function Navbar() {
           aria-label={open ? "Tutup menu" : "Buka menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
-          className={`grid size-10 place-items-center rounded-xl border md:hidden ${scrolled ? "border-ink/10" : "border-white/15 text-white"}`}
+          className={`grid size-10 place-items-center rounded-xl border lg:hidden ${scrolled ? "border-ink/10" : "border-white/15 text-white"}`}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         {open && (
-          <div className="absolute left-4 right-4 top-[76px] flex flex-col gap-1 rounded-2xl border border-ink/10 bg-cream p-3 text-ink shadow-xl md:hidden">
+          <div className="absolute left-4 right-4 top-[76px] flex flex-col gap-1 rounded-2xl border border-ink/10 bg-cream p-3 text-ink shadow-xl lg:hidden">
             {links.map(([label, href]) => (
               <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 font-semibold hover:bg-white">{label}</a>
             ))}

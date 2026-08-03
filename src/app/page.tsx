@@ -15,7 +15,10 @@ import {
   Volume2,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import JourneyStory from "@/components/JourneyStory";
+import MythFact from "@/components/MythFact";
 import NewsFeed from "@/components/NewsFeed";
+import PerspectivePicker from "@/components/PerspectivePicker";
 import Pledge from "@/components/Pledge";
 import RoadQuiz from "@/components/RoadQuiz";
 import SafetyCheck from "@/components/SafetyCheck";
@@ -46,11 +49,11 @@ export default async function Home() {
             Berkendara lebih sadar untuk <span className="bg-gradient-to-r from-[#8ed8ff] via-[#9ee8e8] to-[#ffd27f] bg-clip-text text-transparent">jalan yang lebih aman.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-white/65 sm:text-xl">
-            Pelajari etika berkendara, uji keputusanmu lewat simulasi, dan ikuti perkembangan transportasi publik Indonesia dalam satu ruang belajar.
+            Pilih sudut pandangmu, ikuti cerita perjalanan, uji keputusan lewat simulasi, dan temukan satu kebiasaan yang bisa dimulai hari ini.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="#kuis" className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-7 py-4 font-bold text-white shadow-xl shadow-slate-950/30 transition hover:-translate-y-0.5 hover:shadow-sky-500/20">
-              Coba Mini-game <ArrowDown size={18} />
+            <a href="#perspektif" className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-7 py-4 font-bold text-white shadow-xl shadow-slate-950/30 transition hover:-translate-y-0.5 hover:shadow-sky-500/20">
+              Mulai Perjalanan <ArrowDown size={18} />
             </a>
             <a href="#masalah" className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15">
               Mulai Belajar <ArrowRight size={18} />
@@ -79,6 +82,8 @@ export default async function Home() {
           <div className="flex items-center gap-2 text-sm font-bold text-sun"><HeartHandshake size={20} /> Jalan adalah ruang bersama</div>
         </div>
       </section>
+
+      <PerspectivePicker />
 
       <section id="masalah" className="bg-gradient-to-b from-cream via-white to-sky-50/50 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -184,6 +189,10 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <MythFact />
+
+      <JourneyStory />
 
       <section id="cek-diri" className="bg-gradient-to-b from-white to-sky-50/60 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
