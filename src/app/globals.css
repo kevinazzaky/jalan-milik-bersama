@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #182b49;
+  --color-forest: #2563a9;
+  --color-mint: #e7f1fb;
+  --color-cream: #f8fafc;
+  --color-sun: #f4b950;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f8fafc;
+  color: #182b49;
+}
+
+::selection {
+  background: #f4b950;
+  color: #182b49;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
