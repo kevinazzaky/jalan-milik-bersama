@@ -134,10 +134,10 @@ Setiap requirement berikut harus dapat diperiksa sebagai kondisi lulus atau gaga
 | FR-3 | P1 | **Dua sisi masalah:** sistem harus menjelaskan masalah etika berkendara dan keterbatasan sistem transportasi tanpa menyalahkan satu pihak secara mutlak. |
 | FR-4 | P1 | **Efek berantai:** lima tahap harus ditampilkan berurutan. Setiap tahap harus memiliki judul, penyebab, dan masalah yang ditimbulkan. |
 | FR-5 | P1 | **Contoh kasus:** minimal enam kasus harus menampilkan perilaku, dampak, dan tindakan yang benar. |
-| FR-6 | P1 | **Cek Kebiasaan:** sistem harus menampilkan lima pertanyaan, mencatat satu jawaban per pertanyaan, menghitung skor 0-10, dan menampilkan rekomendasi sesuai rentang skor. |
+| FR-6 | P1 | **Cek Kebiasaan:** sistem harus menampilkan lima pertanyaan, mengacak urutan pilihan setiap percobaan, mencatat satu jawaban per pertanyaan, menghitung skor 0-10, dan menampilkan rekomendasi sesuai rentang skor. |
 | FR-7 | P1 | **Privasi Cek Kebiasaan:** jawaban tidak boleh dikirim ke server, disimpan ke database, atau tetap tersedia setelah halaman dimuat ulang. |
 | FR-8 | P1 | **Dashboard data:** sistem harus menampilkan nilai, penjelasan, tahun, dan tautan sumber untuk setiap statistik keselamatan. |
-| FR-9 | P1 | **Mini-game:** sistem harus menyediakan tepat 10 situasi, indikator progres, pilihan jawaban, pembahasan, skor akhir, dan fungsi bermain ulang. |
+| FR-9 | P1 | **Mini-game:** sistem harus menyediakan tepat 10 situasi, mengacak posisi jawaban tanpa mengubah validitasnya, menampilkan indikator progres, pembahasan, skor akhir, dan fungsi bermain ulang. |
 | FR-10 | P1 | **Validasi mini-game:** pengguna tidak dapat melanjutkan sebelum memilih jawaban dan tidak dapat mengubah skor dengan memilih jawaban berulang pada situasi yang sama. |
 | FR-11 | P1 | **Dampak bersama:** sistem harus menjelaskan dampak terhadap keselamatan, ruang bersama, lingkungan, dan kesehatan mental. |
 | FR-12 | P1 | **Solusi seimbang:** sistem harus menampilkan tindakan untuk masyarakat, komunitas, serta pemerintah atau operator. |
@@ -293,6 +293,8 @@ PRD adalah living document. Bagian berikut perlu diperbarui setelah pengujian pe
 | D-2 | 3 Agustus 2026 | CCTV, monitoring mandiri, dan penyimpanan lokasi tidak dimasukkan ke v1.1. | Menjaga scope realistis, biaya terkendali, dan risiko privasi rendah. |
 | D-3 | 3 Agustus 2026 | Google Maps Traffic Layer dipilih sebagai penyedia v1.1. | Integrasi paling sederhana, model biaya per map load lebih mudah dipantau, dan coverage traffic tersedia di Indonesia. |
 | D-4 | 3 Agustus 2026 | Implementasi peta ditahan dan dikeluarkan dari halaman aktif. | Fokus tahap sekarang dialihkan ke kedalaman konten dan engagement tanpa API berbayar. |
+| D-5 | 3 Agustus 2026 | Arah visual menggunakan Diorama Jalan dan kontrol taktil berbasis CSS. | Memberi karakter 3D yang relevan tanpa menambah WebGL, library berat, atau menjadikan semua konten sebagai kartu 3D. |
+| D-6 | 4 Agustus 2026 | Layout diarahkan menjadi empat bab editorial dengan BlurText dan SpotlightCard yang diadaptasi dari React Bits. | Mengurangi pola landing page generik, membatasi motion pada konteks yang berguna, dan membangun alur belajar yang lebih jelas. |
 
 ## Riwayat Perubahan
 

@@ -4,12 +4,10 @@ import { Menu, Route, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const links = [
-  ["Belajar", "#masalah"],
-  ["Mitos", "#mitos"],
-  ["Cerita", "#cerita"],
-  ["Cek Diri", "#cek-diri"],
-  ["Kuis", "#kuis"],
-  ["Berita", "#berita"],
+  ["01 Lihat", "#masalah"],
+  ["02 Rasakan", "#perspektif"],
+  ["03 Uji", "#cek-diri"],
+  ["04 Bertindak", "#aksi"],
 ];
 
 export default function Navbar() {

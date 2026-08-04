@@ -56,7 +56,7 @@ export default function PerspectivePicker() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[.2em] text-forest/55">Mulai dari dirimu</p>
+            <p className="text-sm font-bold uppercase tracking-[.2em] text-forest/55">02 / Rasakan perspektif</p>
             <h2 className="mt-5 font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Kamu paling sering berada di posisi mana?</h2>
           </div>
           <p className="max-w-2xl leading-7 text-ink/60">Pilih perspektif yang paling dekat dengan keseharianmu. Tidak ada data yang disimpan; pilihan ini hanya membantu menentukan fokus belajar.</p>
@@ -64,13 +64,13 @@ export default function PerspectivePicker() {
 
         <div className="mt-12 flex gap-2 overflow-x-auto pb-3">
           {perspectives.map(({ label, icon: Icon }, index) => (
-            <button type="button" key={label} onClick={() => setSelected(index)} className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-3 text-sm font-bold transition ${selected === index ? "border-forest bg-forest text-white shadow-lg shadow-blue-950/10" : "border-ink/10 bg-cream text-ink/60 hover:border-forest/30"}`}>
+            <button type="button" key={label} onClick={() => setSelected(index)} className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-3 text-sm font-bold transition ${selected === index ? "-translate-y-1 border-forest bg-forest text-white shadow-[0_7px_0_#174d87,0_14px_25px_rgba(24,43,73,.16)]" : "border-ink/10 bg-cream text-ink/60 hover:-translate-y-0.5 hover:border-forest/30"}`}>
               <Icon size={17} /> {label}
             </button>
           ))}
         </div>
 
-        <div className="mt-4 grid overflow-hidden rounded-3xl border border-sky-100 bg-mint lg:grid-cols-[1.1fr_.9fr]">
+        <div className="mt-4 grid overflow-hidden rounded-[2rem] border border-sky-100 bg-mint shadow-[0_12px_0_#d4e6f2,0_28px_60px_rgba(24,43,73,.1)] lg:grid-cols-[1.1fr_.9fr]">
           <div className="p-7 sm:p-10 lg:p-12">
             <span className="grid size-14 place-items-center rounded-2xl bg-white text-forest shadow-sm"><PerspectiveIcon size={27} /></span>
             <h3 className="mt-8 max-w-xl font-display text-3xl font-bold leading-tight tracking-[-.035em]">{perspective.title}</h3>

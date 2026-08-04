@@ -1,6 +1,6 @@
 "use client";
 
-import { Brain, Check, HeartHandshake, RotateCcw, ShieldCheck } from "lucide-react";
+import { Brain, CarFront, Check, HeartHandshake, RotateCcw, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 const scenes = [
@@ -109,7 +109,15 @@ export default function JourneyStory() {
             <div className="grid lg:grid-cols-[1fr_.75fr]">
               <div className="p-7 sm:p-10 lg:p-12">
                 <div className="flex items-center justify-between"><span className="rounded-full bg-sun px-3 py-1.5 text-xs font-bold text-ink">{scene.time}</span><span className="text-xs font-bold text-white/40">{step + 1} / {scenes.length}</span></div>
-                <div className="mt-4 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-sun transition-all" style={{ width: `${((step + 1) / scenes.length) * 100}%` }} /></div>
+                <div className="relative mt-6 h-10">
+                  <div className="absolute inset-x-0 top-3 h-5 overflow-hidden rounded-full bg-[#263e51] shadow-inner">
+                    <div className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 bg-[repeating-linear-gradient(90deg,transparent_0,transparent_14px,#f4b950_14px,#f4b950_28px)] opacity-70" />
+                    <div className="h-full rounded-full bg-sky-300/15 transition-all" style={{ width: `${((step + 1) / scenes.length) * 100}%` }} />
+                  </div>
+                  <span className="journey-vehicle absolute top-0 grid size-10 -translate-x-1/2 place-items-center rounded-xl border border-white/60 bg-sun text-ink shadow-xl" style={{ left: `${8 + step * 21}%` }}>
+                    <CarFront size={21} />
+                  </span>
+                </div>
                 <h3 className="mt-10 max-w-xl font-display text-3xl font-bold leading-tight tracking-[-.035em]">{scene.title}</h3>
                 <p className="mt-4 max-w-xl leading-7 text-white/60">{scene.text}</p>
                 <div className="mt-9 grid gap-3">

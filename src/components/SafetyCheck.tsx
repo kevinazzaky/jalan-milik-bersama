@@ -2,8 +2,12 @@
 
 import { CheckCircle2, Gauge, RotateCcw } from "lucide-react";
 import { useState } from "react";
+import { seededShuffle } from "@/lib/shuffle";
 
-const questions = [
+type HabitOption = readonly [label: string, value: number];
+type HabitQuestion = { label: string; options: readonly HabitOption[] };
+
+const questions: readonly HabitQuestion[] = [
   {
     label: "Saat notifikasi masuk ketika berkendara...",
     options: [
@@ -44,11 +48,12 @@ const questions = [
       ["Saya membandingkan moda sebelum pergi", 2],
     ],
   },
-] as const;
+];
 
 export default function SafetyCheck() {
   const [answers, setAnswers] = useState<(number | null)[]>(Array(questions.length).fill(null));
   const [showResult, setShowResult] = useState(false);
+  const [shuffleSeed, setShuffleSeed] = useState(29);
   const answered = answers.filter((answer) => answer !== null).length;
   const score = answers.reduce<number>((total, answer) => total + (answer ?? 0), 0);
 
@@ -60,6 +65,7 @@ export default function SafetyCheck() {
   const reset = () => {
     setAnswers(Array(questions.length).fill(null));
     setShowResult(false);
+    setShuffleSeed((value) => value + 1);
   };
 
   const result = score >= 9
@@ -84,7 +90,7 @@ export default function SafetyCheck() {
             <fieldset key={question.label}>
               <legend className="text-sm font-bold sm:text-base">{questionIndex + 1}. {question.label}</legend>
               <div className="mt-3 grid gap-2 sm:grid-cols-3">
-                {question.options.map(([label, value]) => {
+                {seededShuffle(question.options, shuffleSeed + questionIndex * 53).map(([label, value]) => {
                   const active = answers[questionIndex] === value;
                   return (
                     <button

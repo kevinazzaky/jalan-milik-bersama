@@ -19,6 +19,32 @@ body {
   color: #182b49;
 }
 
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@keyframes diorama-float {
+  0%, 100% { transform: translate3d(0, 0, 24px); }
+  50% { transform: translate3d(0, -7px, 30px); }
+}
+
+@keyframes beacon {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244,185,80,.35); }
+  50% { box-shadow: 0 0 0 12px rgba(244,185,80,0); }
+}
+
+.diorama-float {
+  animation: diorama-float 4s ease-in-out infinite;
+}
+
+.beacon {
+  animation: beacon 2.4s ease-in-out infinite;
+}
+
+.journey-vehicle {
+  transition: left .55s cubic-bezier(.2,.8,.2,1), transform .3s ease;
+}
+
 ::selection {
   background: #f4b950;
   color: #182b49;
@@ -26,4 +52,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .diorama-float, .beacon { animation: none; }
+  .journey-vehicle { transition: none; }
 }

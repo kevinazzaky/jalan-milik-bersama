@@ -40,8 +40,8 @@ export default function NewsFeed({ articles, isLive, updatedAt }: NewsFeedProps)
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {visibleArticles.map((article, index) => (
-            <a key={`${page}-${article.href}`} href={article.href} target="_blank" rel="noreferrer" className={`group flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-cream shadow-sm transition hover:-translate-y-1 hover:border-forest/30 hover:shadow-xl ${index === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}>
-              <div className="relative aspect-[16/10] overflow-hidden bg-mint">
+            <a key={`${page}-${article.href}`} href={article.href} target="_blank" rel="noreferrer" className={`group flex flex-col overflow-hidden border-t-2 border-ink/15 bg-white pt-4 transition hover:border-forest ${index === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-mint">
                 <Image src={article.image} alt={`Foto artikel: ${article.title}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
               </div>
               <div className="flex flex-1 flex-col p-5 sm:p-6">

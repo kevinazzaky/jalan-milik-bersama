@@ -2,6 +2,7 @@
 
 import { Check, RotateCcw, Trophy, X } from "lucide-react";
 import { useState } from "react";
+import { seededShuffle } from "@/lib/shuffle";
 
 const questions = [
   {
@@ -71,14 +72,19 @@ export default function RoadQuiz() {
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [shuffleSeed, setShuffleSeed] = useState(71);
 
   const question = questions[current];
-  const correct = selected === question.answer;
+  const options = seededShuffle(
+    question.options.map((label, index) => ({ label, correct: index === question.answer })),
+    shuffleSeed + current * 97,
+  );
+  const correct = selected !== null && options[selected].correct;
 
   const choose = (index: number) => {
     if (selected !== null) return;
     setSelected(index);
-    if (index === question.answer) setScore((value) => value + 1);
+    if (options[index].correct) setScore((value) => value + 1);
   };
 
   const next = () => {
@@ -95,6 +101,7 @@ export default function RoadQuiz() {
     setSelected(null);
     setScore(0);
     setFinished(false);
+    setShuffleSeed((value) => value + 1);
   };
 
   return (
@@ -132,19 +139,19 @@ export default function RoadQuiz() {
             <p className="text-sm font-semibold text-white/45">Situasi {String(current + 1).padStart(2, "0")}</p>
             <h3 className="mt-4 max-w-xl font-display text-2xl font-bold leading-snug tracking-[-.025em] sm:text-3xl">{question.situation}</h3>
             <div className="mt-8 space-y-3">
-              {question.options.map((option, index) => {
-                const isAnswer = index === question.answer;
+              {options.map((option, index) => {
+                const isAnswer = option.correct;
                 const isSelected = index === selected;
                 const revealed = selected !== null;
                 return (
                   <button
                     type="button"
-                    key={option}
+                    key={option.label}
                     onClick={() => choose(index)}
                     className={`flex w-full items-center gap-3 rounded-xl border p-4 text-left text-sm font-semibold transition ${revealed && isAnswer ? "border-sky-300 bg-sky-300/15" : revealed && isSelected ? "border-red-300 bg-red-300/10" : "border-white/15 hover:border-white/45 hover:bg-white/5"}`}
                   >
                     <span className="grid size-7 shrink-0 place-items-center rounded-lg border border-white/20 text-xs">{revealed && isAnswer ? <Check size={15} /> : revealed && isSelected ? <X size={15} /> : String.fromCharCode(65 + index)}</span>
-                    {option}
+                    {option.label}
                   </button>
                 );
               })}
