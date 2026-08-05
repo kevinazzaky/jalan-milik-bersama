@@ -90,7 +90,7 @@ export default function JourneyStory() {
     <section id="cerita" className="bg-[#123552] py-20 text-white sm:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
-          <div><p className="text-sm font-bold uppercase tracking-[.2em] text-sun">Cerita interaktif</p><h2 className="mt-5 font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Satu perjalanan, lima keputusan.</h2></div>
+          <h2 className="font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Satu perjalanan, lima keputusan.</h2>
           <p className="max-w-xl leading-7 text-white/60 lg:justify-self-end">Tujuannya bukan tiba paling cepat, tetapi melihat bagaimana keputusan kecil membentuk keselamatan seluruh perjalanan.</p>
         </div>
 
@@ -130,7 +130,7 @@ export default function JourneyStory() {
 
               <aside className="flex flex-col justify-between border-t border-white/10 bg-black/10 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[.18em] text-white/40">Dampak keputusan</p>
+                  <p className="font-display text-lg font-bold text-white">Dampak keputusan</p>
                   <div className="mt-7 space-y-6">
                     {indicators.map(({ label, icon: Icon, value }) => (
                       <div key={label}>

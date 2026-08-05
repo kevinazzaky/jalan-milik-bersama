@@ -16,7 +16,7 @@ export default function Pledge() {
   return (
     <div className="grid overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-xl shadow-slate-950/5 lg:grid-cols-[1.1fr_.9fr]">
       <div className="p-6 sm:p-10 lg:p-14">
-        <p className="mb-6 text-sm font-bold uppercase tracking-[0.18em] text-forest/60">Checklist hari ini</p>
+        <p className="mb-6 font-display text-xl font-bold text-ink">Checklist hari ini</p>
         <div className="grid gap-3">
           {actions.map((action, index) => {
             const active = checked.includes(index);

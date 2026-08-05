@@ -56,10 +56,9 @@ export default function PerspectivePicker() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[.2em] text-forest/55">02 / Rasakan perspektif</p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Kamu paling sering berada di posisi mana?</h2>
+            <h2 className="font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Kamu paling sering berada di posisi mana?</h2>
           </div>
-          <p className="max-w-2xl leading-7 text-ink/60">Pilih perspektif yang paling dekat dengan keseharianmu. Tidak ada data yang disimpan; pilihan ini hanya membantu menentukan fokus belajar.</p>
+          <p className="max-w-2xl leading-7 text-ink/75">Pilih perspektif yang paling dekat dengan keseharianmu. Tidak ada data yang disimpan; pilihan ini hanya membantu menentukan fokus belajar.</p>
         </div>
 
         <div className="mt-12 flex gap-2 overflow-x-auto pb-3">
@@ -74,11 +73,11 @@ export default function PerspectivePicker() {
           <div className="p-7 sm:p-10 lg:p-12">
             <span className="grid size-14 place-items-center rounded-2xl bg-white text-forest shadow-sm"><PerspectiveIcon size={27} /></span>
             <h3 className="mt-8 max-w-xl font-display text-3xl font-bold leading-tight tracking-[-.035em]">{perspective.title}</h3>
-            <p className="mt-4 max-w-xl leading-7 text-ink/60">{perspective.text}</p>
+            <p className="mt-4 max-w-xl leading-7 text-ink/75">{perspective.text}</p>
             <a href="#contoh" className="mt-8 inline-flex items-center gap-2 font-bold text-forest">Lihat contoh di jalan <MoveRight size={18} /></a>
           </div>
           <div className="flex flex-col justify-center bg-gradient-to-br from-[#173e65] to-[#247a96] p-7 text-white sm:p-10 lg:p-12">
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-sun">Fokus belajarmu</p>
+            <p className="font-display text-lg font-bold text-sun">Fokus belajarmu</p>
             <ol className="mt-7 space-y-5">
               {perspective.points.map((point, index) => (
                 <li key={point} className="flex items-center gap-4 font-bold"><span className="grid size-8 place-items-center rounded-full bg-white/10 text-xs text-white/70">0{index + 1}</span>{point}</li>

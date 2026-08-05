@@ -79,8 +79,7 @@ export default function SafetyCheck() {
       <div className="p-6 sm:p-9 lg:p-11">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-forest/55">5 pertanyaan singkat</p>
-            <h3 className="mt-2 font-display text-2xl font-bold">Cek kebiasaan perjalananmu</h3>
+            <h3 className="font-display text-2xl font-bold">Cek kebiasaan perjalananmu</h3>
           </div>
           <span className="rounded-full bg-mint px-3 py-1.5 text-xs font-bold text-forest">{answered}/{questions.length} dijawab</span>
         </div>
@@ -97,7 +96,7 @@ export default function SafetyCheck() {
                       type="button"
                       key={label}
                       onClick={() => selectAnswer(questionIndex, value)}
-                      className={`rounded-xl border px-3 py-3 text-left text-xs font-semibold leading-5 transition ${active ? "border-forest bg-mint text-forest" : "border-ink/10 bg-cream text-ink/60 hover:border-forest/30"}`}
+                      className={`rounded-xl border px-3 py-3 text-left text-xs font-semibold leading-5 transition ${active ? "border-forest bg-mint text-forest" : "border-ink/10 bg-cream text-ink/75 hover:border-forest/30"}`}
                     >
                       {label}
                     </button>

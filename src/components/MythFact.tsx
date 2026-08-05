@@ -1,15 +1,39 @@
 "use client";
 
-import { Check, RotateCcw, Sparkles, X } from "lucide-react";
+import { Check, RotateCcw, X } from "lucide-react";
 import { useState } from "react";
 
 const statements = [
-  { text: "Lampu kuning berarti pengendara harus menambah kecepatan agar sempat lewat.", fact: false, explanation: "Lampu kuning adalah peringatan untuk berhenti jika hal itu masih dapat dilakukan dengan aman, bukan isyarat untuk mempercepat." },
-  { text: "Lampu hazard tidak membuat kendaraan boleh berhenti di lokasi terlarang.", fact: true, explanation: "Hazard hanya memberi tanda kondisi darurat. Lampu tersebut tidak mengubah tikungan, zebra cross, atau badan jalan menjadi tempat berhenti yang aman." },
-  { text: "Trotoar yang sedang kosong boleh digunakan motor untuk menghindari kemacetan.", fact: false, explanation: "Trotoar tetap merupakan ruang pejalan kaki. Kondisi kosong saat ini tidak berarti tidak ada orang yang akan menggunakannya beberapa detik kemudian." },
-  { text: "Jarak aman perlu ditambah ketika jalan basah.", fact: true, explanation: "Permukaan basah mengurangi daya cengkeram dan dapat memperpanjang jarak pengereman, sehingga ruang untuk bereaksi perlu diperbesar." },
-  { text: "Membaca pesan saat berhenti di lampu merah tidak memengaruhi keselamatan.", fact: false, explanation: "Perhatian dapat tetap tertinggal pada ponsel ketika kendaraan mulai bergerak. Jika pesan penting, berhenti di lokasi aman sebelum membukanya." },
-  { text: "Pengendara tertib ikut membantu arus lalu lintas menjadi lebih mudah diprediksi.", fact: true, explanation: "Sein, jarak, posisi, dan kecepatan yang konsisten membantu pengguna lain memperkirakan gerakan serta mengurangi manuver mendadak." },
+  {
+    text: "Memangku anak dengan erat sudah cukup untuk melindunginya selama perjalanan mobil.",
+    fact: false,
+    explanation: "Saat benturan atau pengereman keras, gaya yang terjadi dapat membuat orang dewasa tidak mampu menahan tubuh anak. Gunakan sistem perlindungan anak yang sesuai usia, ukuran tubuh, petunjuk produsen, dan posisi pemasangan yang direkomendasikan.",
+  },
+  {
+    text: "Ban pasti aman digunakan selama alurnya masih terlihat tebal.",
+    fact: false,
+    explanation: "Kelayakan ban tidak hanya ditentukan kedalaman alur. Tekanan yang tidak sesuai, retakan, benjolan, kerusakan dinding samping, usia, dan keausan tidak merata juga perlu diperiksa. Ikuti batas serta petunjuk pemeriksaan dari produsen kendaraan dan ban.",
+  },
+  {
+    text: "Botol minum, laptop, atau barang lepas di kabin tidak berbahaya karena kendaraan hanya melaju di dalam kota.",
+    fact: false,
+    explanation: "Saat kendaraan berhenti mendadak, barang yang tidak diamankan dapat terus bergerak dan membentur penumpang. Simpan barang di kompartemen, bagasi, atau tempat yang tidak membuatnya mudah terlempar maupun mengganggu pedal dan pengemudi.",
+  },
+  {
+    text: "Menoleh singkat sebelum membuka pintu kendaraan dapat membantu mencegah tabrakan dengan pesepeda atau pengendara yang datang dari belakang.",
+    fact: true,
+    explanation: "Kaca spion tidak selalu memperlihatkan seluruh area di sisi kendaraan. Memeriksa spion lalu menoleh sebelum membuka pintu memberi kesempatan untuk melihat pengguna jalan yang berada di luar bidang pandang kaca.",
+  },
+  {
+    text: "Mengikuti ambulans dari dekat adalah cara aman melewati kemacetan karena kendaraan lain sudah memberi jalan.",
+    fact: false,
+    explanation: "Ruang yang diberikan kepada kendaraan darurat diperlukan agar petugas dapat bergerak dan bermanuver. Mengikuti dari dekat dapat menutup koridor, mengejutkan pengguna lain, dan menciptakan bahaya baru. Beri jalan, jaga jarak, dan kembali mengikuti arus secara wajar.",
+  },
+  {
+    text: "Posisi head restraint atau sandaran kepala ikut memengaruhi perlindungan leher ketika mobil mengalami benturan dari belakang.",
+    fact: true,
+    explanation: "Head restraint bukan sekadar penyangga kenyamanan. Posisi yang terlalu rendah atau terlalu jauh dari kepala dapat mengurangi efektivitasnya. Atur sesuai petunjuk kendaraan agar bagian penyangga berada dekat dan sejajar dengan area kepala yang direkomendasikan.",
+  },
 ] as const;
 
 export default function MythFact() {
@@ -46,9 +70,8 @@ export default function MythFact() {
     <section id="mitos" className="bg-gradient-to-b from-sky-50/50 to-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-forest"><Sparkles size={15} /> Mitos atau fakta</div>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Yang sering terdengar belum tentu benar.</h2>
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-ink/60">Enam pernyataan singkat untuk membongkar anggapan yang sering dianggap wajar di jalan.</p>
+          <h2 className="font-display text-4xl font-bold tracking-[-.045em] sm:text-5xl">Yang sering terdengar belum tentu benar.</h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-7 text-ink/75">Enam pernyataan singkat untuk membongkar anggapan yang sering dianggap wajar di jalan.</p>
         </div>
 
         <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-xl shadow-slate-950/5">
@@ -83,7 +106,7 @@ export default function MythFact() {
                   <div>
                     <span className={`grid size-10 place-items-center rounded-xl ${correct ? "bg-sky-100 text-forest" : "bg-red-100 text-red-700"}`}>{correct ? <Check size={20} /> : <X size={20} />}</span>
                     <p className={`mt-5 font-display text-xl font-bold ${correct ? "text-forest" : "text-red-700"}`}>{correct ? "Tepat" : `Jawabannya ${statement.fact ? "Fakta" : "Mitos"}`}</p>
-                    <p className="mt-3 leading-7 text-ink/60">{statement.explanation}</p>
+                    <p className="mt-3 leading-7 text-ink/75">{statement.explanation}</p>
                   </div>
                 )}
                 <button type="button" disabled={answer === null} onClick={next} className="mt-8 rounded-full bg-forest px-5 py-3.5 text-sm font-bold text-white transition enabled:hover:bg-ink disabled:cursor-not-allowed disabled:opacity-30">{current === statements.length - 1 ? "Lihat hasil" : "Pernyataan berikutnya"}</button>
