@@ -53,6 +53,9 @@ export default function RoadDiorama() {
       <div className="absolute bottom-[14%] right-0 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-left text-white shadow-xl backdrop-blur">
         <p className="text-xs font-bold text-sun">02</p><p className="mt-1 text-sm font-bold">Beri ruang</p>
       </div>
+      <div className="absolute right-[2%] top-[8%] hidden rotate-3 rounded-full border border-white/15 bg-[#102a43]/85 px-4 py-2 text-xs font-bold text-white shadow-xl backdrop-blur sm:block">
+        Sein adalah bahasa jalan
+      </div>
     </div>
   );
 }

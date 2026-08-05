@@ -1,7 +1,6 @@
 import {
   ArrowDown,
   ArrowRight,
-  BarChart3,
   BusFront,
   ChevronRight,
   CircleAlert,
@@ -23,6 +22,7 @@ import RoadDiorama from "@/components/RoadDiorama";
 import RoadQuiz from "@/components/RoadQuiz";
 import SafetyCheck from "@/components/SafetyCheck";
 import BlurText from "@/components/react-bits/BlurText";
+import RotatingText from "@/components/react-bits/RotatingText";
 import SpotlightCard from "@/components/react-bits/SpotlightCard";
 import { impacts, sources, violations } from "@/data/content";
 import { getLatestNews } from "@/lib/news";
@@ -35,7 +35,7 @@ export default async function Home() {
   const { articles: latestNews, isLive, updatedAt } = await getLatestNews();
 
   return (
-    <main className="overflow-hidden">
+    <main id="konten-utama" className="overflow-hidden">
       <Navbar />
 
       <section id="beranda" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-[#102a43] via-[#174f78] to-[#247ca0] pb-16 pt-32 text-white">
@@ -43,26 +43,29 @@ export default async function Home() {
         <div className="absolute -right-32 top-1/3 size-[32rem] rounded-full bg-cyan-300/20 blur-3xl" />
         <div className="absolute bottom-8 left-1/2 size-72 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl" />
         <div className="absolute inset-0 opacity-[.06] [background-image:radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:30px_30px]" />
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-6 py-12 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-16">
-          <div className="text-center lg:text-left">
-            <p className="text-xs font-bold uppercase tracking-[.24em] text-sun">00 / Jalan Milik Bersama</p>
-            <BlurText text="Cara kita mengambil ruang menentukan siapa yang bisa pulang dengan selamat." className="mx-auto mt-7 max-w-3xl font-display text-4xl font-extrabold leading-[1.08] tracking-[-0.05em] sm:text-6xl lg:mx-0 lg:text-[3.65rem]" />
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-white/65 sm:text-xl lg:mx-0">
-              Pilih sudut pandangmu, ikuti cerita perjalanan, uji keputusan lewat simulasi, dan temukan satu kebiasaan yang bisa dimulai hari ini.
-            </p>
-            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <a href="#perspektif" className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-7 py-4 font-bold text-white shadow-xl shadow-slate-950/30 transition hover:-translate-y-0.5 hover:shadow-sky-500/20">
-                Mulai Perjalanan <ArrowDown size={18} />
-              </a>
-              <a href="#masalah" className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15">
-                Mulai Belajar <ArrowRight size={18} />
-              </a>
-            </div>
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center px-6 py-12 text-center lg:px-8 lg:py-16">
+          <BlurText text="Jalan bukan arena untuk menang." className="mx-auto max-w-5xl justify-center font-display text-5xl font-extrabold leading-[1.02] tracking-[-0.055em] sm:text-7xl lg:text-[5.5rem]" />
+          <p className="mt-4 font-display text-2xl font-bold tracking-[-.04em] text-white/75 sm:text-4xl">
+            Jalan adalah ruang untuk{" "}
+            <RotatingText texts={["pulang selamat.", "saling menjaga.", "bergerak setara."]} className="rounded-xl bg-sun px-3 py-1 text-ink shadow-[0_6px_0_#d9942f]" />
+          </p>
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-white/65 sm:text-xl">
+            Pilih sudut pandangmu, ikuti cerita perjalanan, uji keputusan lewat simulasi, dan temukan satu kebiasaan yang bisa dimulai hari ini.
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href="#perspektif" className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 px-7 py-4 font-bold text-white shadow-xl shadow-slate-950/30 transition hover:-translate-y-0.5 hover:shadow-sky-500/20">
+              Mulai Perjalanan <ArrowDown size={18} />
+            </a>
+            <a href="#masalah" className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15">
+                Lewati ke Materi <ArrowRight size={18} />
+            </a>
           </div>
 
-          <RoadDiorama />
+          <div className="mt-2 w-full max-w-2xl">
+            <RoadDiorama />
+          </div>
 
-          <div className="mx-auto grid w-full max-w-4xl gap-3 sm:grid-cols-3 lg:col-span-2 lg:mt-2">
+          <div className="mx-auto -mt-4 grid w-full max-w-4xl gap-3 sm:grid-cols-3">
             {[
               ["6", "Kasus sehari-hari"],
               ["10", "Simulasi interaktif"],
@@ -89,10 +92,9 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">01 / Lihat masalah</p>
-              <h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-[-0.045em] sm:text-5xl">Dua masalah,<br />satu siklus yang sama.</h2>
+              <h2 className="font-display text-4xl font-bold leading-tight tracking-[-0.045em] sm:text-5xl">Dua masalah,<br />satu siklus yang sama.</h2>
             </div>
-            <p className="max-w-2xl self-end text-lg leading-8 text-ink/60">
+              <p className="max-w-2xl self-end text-lg leading-8 text-ink/75">
               Kebiasaan di jalan dan pilihan moda transportasi saling berkaitan. Kita perlu membenahi perilaku tanpa menutup mata terhadap kualitas sistem transportasi.
             </p>
           </div>
@@ -104,7 +106,7 @@ export default async function Home() {
                 <span className="font-display text-sm font-bold text-ink/30">01 / PERILAKU</span>
               </div>
               <h3 className="font-display text-3xl font-bold tracking-[-0.035em]">Etika berkendara diabaikan</h3>
-              <p className="mt-4 leading-7 text-ink/60">Kecepatan dan kenyamanan pribadi sering didahulukan daripada keselamatan serta hak pengguna jalan lain. Karena sering terlihat, pelanggaran kecil pun terasa normal.</p>
+              <p className="mt-4 leading-7 text-ink/75">Kecepatan dan kenyamanan pribadi sering didahulukan daripada keselamatan serta hak pengguna jalan lain. Karena sering terlihat, pelanggaran kecil pun terasa normal.</p>
               <div className="mt-8 flex items-center gap-2 font-bold text-forest">Empati sebelum ego <MoveRight className="transition group-hover:translate-x-1" size={19} /></div>
             </article>
             <article className="group border-t-4 border-sky-500 bg-sky-50/50 px-1 py-8 sm:p-9">
@@ -113,7 +115,7 @@ export default async function Home() {
                 <span className="font-display text-sm font-bold text-ink/30">02 / SISTEM</span>
               </div>
               <h3 className="font-display text-3xl font-bold tracking-[-0.035em]">Transportasi umum belum jadi pilihan</h3>
-              <p className="mt-4 leading-7 text-ink/60">Kendaraan pribadi terasa lebih praktis. Namun keputusan itu juga dipengaruhi rute, jadwal, keamanan, kenyamanan, serta akses menuju halte yang belum merata.</p>
+              <p className="mt-4 leading-7 text-ink/75">Kendaraan pribadi terasa lebih praktis. Namun keputusan itu juga dipengaruhi rute, jadwal, keamanan, kenyamanan, serta akses menuju halte yang belum merata.</p>
               <div className="mt-8 flex items-center gap-2 font-bold text-forest">Layanan baik, pilihan lebih bijak <MoveRight className="transition group-hover:translate-x-1" size={19} /></div>
             </article>
           </div>
@@ -123,8 +125,7 @@ export default async function Home() {
       <section className="bg-white py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">Efek berantai</p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Satu pilihan memengaruhi seluruh jalan.</h2>
+            <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Satu pilihan memengaruhi seluruh jalan.</h2>
           </div>
           <div className="mt-14 overflow-hidden rounded-3xl border border-sky-100 bg-cream shadow-sm">
             {[
@@ -140,17 +141,16 @@ export default async function Home() {
                   <ChevronRight className="hidden text-forest/30 md:mx-auto md:mt-4 md:block md:rotate-90" size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[.16em] text-forest/50">Tahap</p>
-                  <h3 className="mt-2 font-display text-xl font-bold tracking-[-.025em]">{item.title}</h3>
+                  <h3 className="font-display text-xl font-bold tracking-[-.025em]">{item.title}</h3>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="rounded-2xl bg-white p-4">
-                    <p className="text-xs font-bold uppercase tracking-[.14em] text-forest/50">Penyebab</p>
-                    <p className="mt-2 text-sm leading-6 text-ink/65">{item.cause}</p>
+                    <p className="text-sm font-bold text-forest">Penyebab</p>
+                    <p className="mt-2 text-sm leading-6 text-ink/75">{item.cause}</p>
                   </div>
                   <div className={`rounded-2xl p-4 ${index === 4 ? "bg-amber-50" : "bg-sky-50/80"}`}>
-                    <p className="text-xs font-bold uppercase tracking-[.14em] text-ink/40">Masalah</p>
-                    <p className="mt-2 text-sm leading-6 text-ink/65">{item.problem}</p>
+                    <p className="text-sm font-bold text-ink">Masalah</p>
+                    <p className="mt-2 text-sm leading-6 text-ink/75">{item.problem}</p>
                   </div>
                 </div>
               </article>
@@ -165,25 +165,24 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">Terjadi setiap hari</p>
-              <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Terlihat sepele,<br />dampaknya nyata.</h2>
+              <h2 className="max-w-2xl font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Terlihat sepele,<br />dampaknya nyata.</h2>
             </div>
-            <p className="max-w-md leading-7 text-ink/60">Kenali perilakunya, pahami siapa yang terdampak, lalu pilih respons yang lebih aman.</p>
+            <p className="max-w-md leading-7 text-ink/75">Kenali perilakunya, pahami siapa yang terdampak, lalu pilih respons yang lebih aman.</p>
           </div>
-          <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {violations.map((item) => (
-              <article key={item.number} className="group flex min-h-[350px] flex-col border-t-2 border-ink/15 bg-transparent py-7 transition hover:border-forest md:px-2">
+          <div className="mt-14 grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-12">
+            {violations.map((item, index) => (
+              <article key={item.number} className={`group flex flex-col border-t-2 border-ink/15 bg-transparent py-7 transition hover:border-forest md:px-2 ${index < 2 ? "min-h-[350px] lg:col-span-6" : "min-h-[320px] lg:col-span-3"}`}>
                 <div className="flex items-center justify-between">
                   <span className="font-display text-sm font-bold text-forest/35">{item.number}</span>
                   <CircleAlert size={20} className="text-sun" />
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-bold tracking-[-0.03em]">{item.title}</h3>
+                <h3 className={`mt-8 font-display font-bold tracking-[-0.03em] ${index < 2 ? "text-3xl" : "text-2xl"}`}>{item.title}</h3>
                 <div className="mt-6 space-y-5 text-sm leading-6">
-                  <div><p className="mb-1 font-bold text-ink">Yang terjadi</p><p className="text-ink/55">{item.behavior}</p></div>
-                  <div><p className="mb-1 font-bold text-ink">Dampaknya</p><p className="text-ink/55">{item.impact}</p></div>
+                  <div><p className="mb-1 font-bold text-ink">Yang terjadi</p><p className="text-ink/70">{item.behavior}</p></div>
+                  <div><p className="mb-1 font-bold text-ink">Dampaknya</p><p className="text-ink/70">{item.impact}</p></div>
                 </div>
                 <div className="mt-auto border-t border-ink/10 pt-5">
-                  <p className="text-xs font-bold uppercase tracking-[.15em] text-forest/45">Pilihan bijak</p>
+                  <p className="text-sm font-bold text-forest">Pilihan bijak</p>
                   <p className="mt-2 text-sm font-bold text-forest">{item.action}</p>
                 </div>
               </article>
@@ -199,9 +198,8 @@ export default async function Home() {
       <section id="cek-diri" className="bg-gradient-to-b from-white to-sky-50/60 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[.2em] text-forest/55">03 / Uji dirimu</p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Seberapa bijak perjalananmu?</h2>
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-ink/60">Kenali pola keputusanmu sebelum mengubahnya. Penilaian ini bersifat reflektif, bukan tes untuk menghakimi.</p>
+            <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Seberapa bijak perjalananmu?</h2>
+            <p className="mx-auto mt-5 max-w-2xl leading-7 text-ink/75">Kenali pola keputusanmu sebelum mengubahnya. Penilaian ini bersifat reflektif, bukan tes untuk menghakimi.</p>
           </div>
           <SafetyCheck />
         </div>
@@ -211,22 +209,21 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-forest"><BarChart3 size={15} /> Dashboard data</div>
-              <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Keselamatan jalan dalam angka.</h2>
+              <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Keselamatan jalan dalam angka.</h2>
             </div>
-            <p className="max-w-md leading-7 text-ink/55">Gambaran global menunjukkan bahwa risiko di jalan bukan masalah kecil dan paling berat dirasakan kelompok rentan.</p>
+            <p className="max-w-md leading-7 text-ink/70">Gambaran global menunjukkan bahwa risiko di jalan bukan masalah kecil dan paling berat dirasakan kelompok rentan.</p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 lg:grid-cols-2 lg:grid-rows-2">
             {[
               { value: "1,19 juta", label: "kematian di jalan setiap tahun", note: "Estimasi global tahunan", color: "from-blue-600 to-sky-500" },
               { value: "92%", label: "terjadi di negara berpendapatan rendah dan menengah", note: "Dengan sekitar 60% kendaraan dunia", color: "from-cyan-600 to-sky-500" },
               { value: "53%", label: "korban adalah pengguna jalan rentan", note: "Pejalan kaki, pesepeda, dan kendaraan roda dua", color: "from-amber-500 to-orange-400" },
-            ].map((stat) => (
-              <article key={stat.value} className="relative overflow-hidden border-t-2 border-sky-200 bg-white py-7 sm:px-4 sm:py-8">
+            ].map((stat, index) => (
+              <article key={stat.value} className={`relative overflow-hidden border-t-2 border-sky-200 bg-white py-7 sm:px-6 sm:py-8 ${index === 0 ? "lg:row-span-2 lg:flex lg:flex-col lg:justify-center" : ""}`}>
                 <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${stat.color}`} />
                 <Globe2 size={24} className="text-forest/45" />
-                <p className="mt-10 font-display text-4xl font-bold tracking-[-.04em]">{stat.value}</p>
+                <p className={`mt-10 font-display font-bold tracking-[-.04em] ${index === 0 ? "text-6xl sm:text-7xl" : "text-4xl"}`}>{stat.value}</p>
                 <p className="mt-3 font-bold leading-6">{stat.label}</p>
                 <p className="mt-5 border-t border-ink/8 pt-4 text-xs leading-5 text-ink/45">{stat.note}</p>
               </article>
@@ -244,8 +241,7 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mb-10 grid gap-5 md:grid-cols-[.9fr_1.1fr] md:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">Mini-game</p>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Seberapa aman keputusanmu?</h2>
+              <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Seberapa aman keputusanmu?</h2>
             </div>
             <p className="max-w-xl leading-7 text-ink/60 md:justify-self-end">Sepuluh situasi yang sering terjadi di jalan. Tidak ada timer, baca perlahan dan pilih respons yang paling menjaga semua orang.</p>
           </div>
@@ -258,8 +254,7 @@ export default async function Home() {
         <div className="absolute -right-32 bottom-0 size-96 rounded-full bg-cyan-300/15 blur-3xl" />
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="relative mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-sun">Dampak bersama</p>
-            <h2 className="mt-5 font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-5xl">Satu tindakan kecil bisa dirasakan satu kota.</h2>
+            <h2 className="font-display text-4xl font-extrabold tracking-[-0.045em] sm:text-5xl">Satu tindakan kecil bisa dirasakan satu kota.</h2>
             <p className="mx-auto mt-6 max-w-2xl leading-7 text-white/55">Pilihan di jalan tidak hanya menentukan waktu tiba, tetapi juga keselamatan, ruang hidup, udara, dan ketenangan orang lain.</p>
           </div>
 
@@ -302,9 +297,8 @@ export default async function Home() {
       <section id="solusi" className="py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">Bergerak bersama</p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Solusi tidak berhenti pada pengendara.</h2>
-            <p className="mt-6 leading-7 text-ink/60">Budaya jalan yang sehat lahir dari kebiasaan pribadi, dukungan komunitas, dan sistem transportasi yang dapat diandalkan.</p>
+            <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Solusi tidak berhenti pada pengendara.</h2>
+            <p className="mt-6 leading-7 text-ink/75">Budaya jalan yang sehat lahir dari kebiasaan pribadi, dukungan komunitas, dan sistem transportasi yang dapat diandalkan.</p>
           </div>
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {[
@@ -314,7 +308,7 @@ export default async function Home() {
             ].map(({ icon: Icon, label, title, points }, index) => (
               <article key={label} className={`border-t-4 p-7 sm:p-9 ${index === 1 ? "border-amber-500 bg-amber-50" : index === 0 ? "border-blue-500 bg-blue-50/40" : "border-sky-500 bg-sky-50/50"}`}>
                 <Icon size={32} strokeWidth={1.7} />
-                <p className="mt-12 text-xs font-bold uppercase tracking-[.17em] text-ink/45">{label}</p>
+                <p className="mt-12 text-sm font-bold text-ink/70">{label}</p>
                 <h3 className="mt-3 font-display text-2xl font-bold tracking-[-0.03em]">{title}</h3>
                 <ul className="mt-7 space-y-4">
                   {points.map((point) => <li key={point} className="flex gap-3 text-sm font-semibold"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-forest" />{point}</li>)}
@@ -330,8 +324,7 @@ export default async function Home() {
       <section id="aksi" className="bg-mint/45 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mb-12 max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">04 / Bertindak</p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Apa yang siap kamu mulai?</h2>
+            <h2 className="font-display text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Apa yang siap kamu mulai?</h2>
           </div>
           <Pledge />
         </div>
@@ -341,8 +334,7 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr]">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-forest/55">Sumber bacaan</p>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-[-0.04em]">Belajar dari data,<br />bergerak dengan sadar.</h2>
+              <h2 className="font-display text-3xl font-bold tracking-[-0.04em]">Belajar dari data,<br />bergerak dengan sadar.</h2>
             </div>
             <div className="divide-y divide-ink/10 border-y border-ink/10">
               {sources.map((source, index) => (
