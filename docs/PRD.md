@@ -294,7 +294,8 @@ PRD adalah living document. Bagian berikut perlu diperbarui setelah pengujian pe
 | D-3 | 3 Agustus 2026 | Google Maps Traffic Layer dipilih sebagai penyedia v1.1. | Integrasi paling sederhana, model biaya per map load lebih mudah dipantau, dan coverage traffic tersedia di Indonesia. |
 | D-4 | 3 Agustus 2026 | Implementasi peta ditahan dan dikeluarkan dari halaman aktif. | Fokus tahap sekarang dialihkan ke kedalaman konten dan engagement tanpa API berbayar. |
 | D-5 | 3 Agustus 2026 | Arah visual menggunakan Diorama Jalan dan kontrol taktil berbasis CSS. | Memberi karakter 3D yang relevan tanpa menambah WebGL, library berat, atau menjadikan semua konten sebagai kartu 3D. |
-| D-6 | 4 Agustus 2026 | Layout diarahkan menjadi empat bab editorial dengan BlurText dan SpotlightCard yang diadaptasi dari React Bits. | Mengurangi pola landing page generik, membatasi motion pada konteks yang berguna, dan membangun alur belajar yang lebih jelas. |
+| D-6 | 4 Agustus 2026 | Layout diarahkan menjadi empat bab editorial dengan BlurText, RotatingText, dan SpotlightCard yang diadaptasi dari React Bits. | Mengurangi pola landing page generik, membatasi motion pada konteks yang berguna, dan membangun alur belajar yang lebih jelas. |
+| D-7 | 4 Agustus 2026 | Audit UI menggunakan skill UI UX Pro Max dan memilih arah Accessible & Ethical + Editorial Grid. | Meningkatkan kontras, navigasi keyboard, tipografi terpercaya, serta ritme layout asimetris tanpa mengikuti rekomendasi warna yang bertentangan dengan identitas project. |
 
 ## Riwayat Perubahan
 
