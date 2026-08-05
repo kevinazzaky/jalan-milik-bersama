@@ -26,5 +26,9 @@ pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Python caches used by local OpenCode skills
+**/__pycache__/
+*.py[cod]
+
 # Vercel
 .vercel

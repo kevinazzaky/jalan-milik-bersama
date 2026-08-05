@@ -2,7 +2,7 @@
 
 ## React Bits
 
-Parts of `BlurText.tsx` and `SpotlightCard.tsx` are adapted from React Bits.
+Parts of `BlurText.tsx`, `RotatingText.tsx`, and `SpotlightCard.tsx` are adapted from React Bits.
 
 Copyright (c) 2026 David Haz
 
@@ -13,3 +13,13 @@ Permission is granted to use, copy, and modify the software as part of an applic
 Source: https://github.com/DavidHDev/react-bits
 
 Full license: https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md
+
+## UI UX Pro Max
+
+The project-local OpenCode skills under `.opencode/skills/` were installed with UI UX Pro Max CLI.
+
+Copyright (c) 2024 Next Level Builder
+
+Licensed under the MIT License.
+
+Source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
